@@ -19,9 +19,9 @@ The primary objective of the React Quality Assurance Initiative is to establish 
 
 ## Key Points
 
-- **Readability:** Focus on writing clean, well-structured code that is easy to understand and maintain.
-- **Coding Standards:** Adhere to React community guidelines and best practices for component lifecycle methods, hooks, and code organization.
-- **Editor Config:** Utilize a shared editor configuration file, such as `.vscode` or `.editorconfig`, to enforce consistent code formatting across the team.
+- [Clean Code Improvements](https://github.com/palakvc/react-quality-assurance/issues/2)
+- [Enforce Project Structure Guidelines](https://github.com/palakvc/react-quality-assurance/issues/3)
+- [Editor and Tool Configuration](https://github.com/palakvc/react-quality-assurance/issues/4)
 
 ## Getting Started
 
