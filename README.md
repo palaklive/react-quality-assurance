@@ -20,7 +20,6 @@ The primary objective of the React Quality Assurance Initiative is to establish 
 ## Key Points
 
 - **Readability:** Focus on writing clean, well-structured code that is easy to understand and maintain.
-- **Naming Conventions:** Follow consistent and meaningful naming conventions for variables, functions, classes, and other elements in the codebase.
 - **Coding Standards:** Adhere to React community guidelines and best practices for component lifecycle methods, hooks, and code organization.
 - **Editor Config:** Utilize a shared editor configuration file, such as `.vscode` or `.editorconfig`, to enforce consistent code formatting across the team.
 
