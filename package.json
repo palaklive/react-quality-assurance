@@ -6,18 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix",
-    "prepare": "husky install",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --config ./.prettierrc.json --write"
-    ],
-    "**/*.{css,scss,md,html,json}": [
-      "prettier --config ./.prettierrc.json --write"
-    ]
+    "lint": "next lint --fix"
   },
   "dependencies": {
     "next": "13.4.8",
