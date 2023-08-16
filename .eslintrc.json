@@ -58,12 +58,6 @@
     "react/no-multi-comp": ["error", { "ignoreStateless": false }],
     "@typescript-eslint/prefer-optional-chain": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
-    // "sort-imports": [
-    //   "warn",
-    //   {
-    //     "memberSyntaxSortOrder": ["all", "single", "multiple", "none"]
-    //   }
-    // ],
     "prettier/prettier": [
       "error",
       {
