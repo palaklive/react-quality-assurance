@@ -9,6 +9,7 @@ const { name: packageName } = require("./package.json");
 function help(code) {
   console.log(`Usage:
   react-quality-assurance init
+  react-quality-assurance init --force
   `);
   process.exit(code);
 }
@@ -24,6 +25,10 @@ async function init() {
       {
         name: "yarn",
         value: "yarn",
+      },
+      {
+        name: "pnpm",
+        value: "pnpm",
       },
     ],
   });
@@ -41,13 +46,18 @@ async function init() {
       devInstall: "--dev",
       uninstall: "yarn remove",
     },
+    pnpm: {
+      install: "pnpm add",
+      devInstall: "--save-dev",
+      uninstall: "pnpm remove",
+    },
   };
 
   const forceCMD = isForceCmd ? "--force" : "";
   const { install, uninstall, devInstall } =
     commandsForPackageManager[packageManager];
 
-  console.log("Installing ESLint and required plugins...");
+  console.log("Installing required plugins...");
   execSync(
     `${install} @types/node @types/react @types/react-dom eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-next  eslint-config-prettier eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-promise eslint-plugin-react eslint-plugin-react-hooks  husky lint-staged prettier ${devInstall} ${forceCMD}`,
     {
@@ -59,7 +69,7 @@ async function init() {
     stdio: "inherit",
   });
 
-  console.log("ESLint and required plugins installed successfully.");
+  console.log("Required plugins installed successfully.");
 
   console.log("Adding husky script");
   execSync(`npm pkg set scripts.prepare="husky install`, {
@@ -83,7 +93,7 @@ async function init() {
     ".prettierrc.json",
   ];
 
-  console.log("Coping ESLint and Others configuration files");
+  console.log("Coping configuration files");
   configNames.forEach((configName) => {
     const configPath = resolve(__dirname, `./${configName}`);
     copyFileSync(configPath, configName);
@@ -99,7 +109,7 @@ async function init() {
   const vscodeConfigPath = resolve(__dirname, vscodePath);
   copyFileSync(vscodeConfigPath, vscodePath);
 
-  console.log("ESLint and Others configuration files copied successfully.");
+  console.log("configuration files copied successfully.");
 
   execSync(`${uninstall} ${packageName} ${forceCMD}`, {
     stdio: "inherit",
@@ -114,6 +124,6 @@ try {
   const [, , cmd] = process.argv;
   cmds[cmd] ? cmds[cmd]() : help(0);
 } catch (error) {
-  console.error("Error installing ESLint and required plugins:", error);
+  console.error("Configuration failed:", error);
   process.exit(1);
 }
